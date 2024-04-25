@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitz Lips</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Glitz Lips</h1>
+        <nav>
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#cart">Cart</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="products">
+            <!-- Product cards will be dynamically generated here -->
+        </section>
+        <aside id="cart">
+            <h2>Cart</h2>
+            <!-- Cart items will be dynamically displayed here -->
+            <button id="checkout-btn">Checkout</button>
+        </aside>
+    </main>
+    <footer id="contact">
+        <h2>Contact Us</h2>
+        <!-- Contact form will be displayed here -->
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+
