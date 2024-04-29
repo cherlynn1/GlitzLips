@@ -1,0 +1,63 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8e0e6; /* Light pink background */
+}
+
+/* Header styles */
+header {
+    background-color: #ff69b4; /* Pink header background */
+    padding: 20px;
+    text-align: center;
+    color: #fff; /* White text color */
+}
+
+header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #fff; /* White text color for navigation links */
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 1.2em;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+}
+
+/* Product section styles */
+.product {
+    background-color: #fff; /* White background for product cards */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.product h2 {
+    color: #ff69b4; /* Pink text color for product titles */
+}
+
+/* Footer styles */
+footer {
+    background-color: #ff69b4; /* Pink footer background */
+    padding: 20px;
+    text-align: center;
+    color: #fff; /* White text color */
+}
+
