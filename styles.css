@@ -56,24 +56,20 @@ main {
 /* Footer styles */
 footer {
     background-color: #ff69b4; /* Pink footer background */
-<<<<<<< HEAD
-=======
     padding: 20px;
     text-align: center;
     color: #fff; /* White text color */
 }
+
 /* Styles for the checkout page */
 .container {
     max-width: 600px;
     margin: 0 auto;
->>>>>>> 3765403 (Add product and style HTML files, update script.js and styles.css)
     padding: 20px;
     text-align: center;
     color: #fff; /* White text color */
 }
 
-<<<<<<< HEAD
-=======
 h1 {
     text-align: center;
 }
@@ -103,41 +99,3 @@ button {
 button:hover {
     background-color: #e63e81;
 }
-
-/* Checkout-related CSS styles */
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-}
-
-.cart-summary {
-    /* Styles for cart summary */
-}
-
-form {
-    margin-top: 20px;
-}
-
-input, button {
-    display: block;
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-button {
-    background-color: #ff69b4;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #e63e81;
-}
->>>>>>> 3765403 (Add product and style HTML files, update script.js and styles.css)
