@@ -1,29 +1,49 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const target = document.querySelector(this.getAttribute('href'));
+// script.js
 
-        window.scrollTo({
-            top: target.offsetTop,
-            behavior: 'smooth'
-        });
-    });
-});
+// Function to add items to the cart
+function addToCart(productName, productPrice) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const product = { name: productName, price: productPrice };
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${productName} has been added to your cart`);
+}
 
-// Display alert message when clicking on "Contact Us" section
-document.querySelector('#contact').addEventListener('click', function () {
-    alert('Please contact us at info@glitzlips.com');
-document.addEventListener('DOMContentLoaded', function() {
-    // Add checkout-related JavaScript code here
-});
-document.getElementById('checkout-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+// Function to display cart items
+function displayCart() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsDiv = document.getElementById('cart-items');
+    const cartTotalDiv = document.getElementById('cart-total');
+    
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = '<p>Your cart is empty.</p>';
+        cartTotalDiv.innerHTML = '';
+        return;
+    }
 
-    // Validate form fields
-    // Perform payment processing (e.g., through a payment gateway)
-    // Update inventory and generate order confirmation
-    // Redirect to confirmation page or display confirmation message
-});
+    let total = 0;
+    cartItemsDiv.innerHTML = cart.map(product => {
+        total += product.price;
+        return `
+            <div class="cart-item">
+                <p>${product.name} - $${product.price.toFixed(2)}</p>
+            </div>
+        `;
+    }).join('');
+    
+    cartTotalDiv.innerHTML = `<p>Total: $${total.toFixed(2)}</p>`;
+}
 
+// Function to handle checkout
+function checkout() {
+    alert('Proceeding to checkout...');
+    // Here you would normally handle the checkout process
+    // For this example, we'll just clear the cart
+    localStorage.removeItem('cart');
+    displayCart();
+}
+
+// Display cart items when the cart page loads
+if (window.location.pathname.endsWith('cart.html')) {
+    displayCart();
+}
