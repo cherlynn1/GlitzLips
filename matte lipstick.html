@@ -9,23 +9,30 @@
 </head>
 <body>
     <header>
-        <h1>Matte Lipstick</h1>
+        <div class="logo">
+            <h1>GlitzLips</h1>
+        </div>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-			<a href="cart.html">Cart</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
         </nav>
     </header>
     <main>
         <div class="product">
-		<div class="glitter-background">
-            <img src=""C:\Users\12085\Downloads\matte_lipstick.jpg"" alt="Matte Lipstick">
-            <h2>Matte Lipstick</h2>
-            <p>Get that bold, matte finish with our Matte Lipstick collection. Available in a variety of vibrant shades to suit every mood.</p>
-            <p>Price: $12.99</p>
-            <button onclick="addToCart('Matte Lipstick', 12.99)">Add to Cart</button>
+            <div class="product-image">
+                <img src="images/matte_lipstick.jpg" alt="Matte Lipstick">
+            </div>
+            <div class="product-details">
+                <h2>Matte Lipstick</h2>
+                <p>Get that bold, matte finish with our Matte Lipstick collection. Available in a variety of vibrant shades to suit every mood.</p>
+                <p>Price: $12.99</p>
+                <button onclick="addToCart('Matte Lipstick', 12.99)">Add to Cart</button>
+            </div>
         </div>
     </main>
     <footer>
@@ -34,3 +41,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+

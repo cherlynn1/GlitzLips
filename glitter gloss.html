@@ -3,36 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glitter Gloss - Glitz Lips</title>
+    <title>Glitter Gloss - GlitzLips</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
     <header>
-        <h1>Glitter Gloss</h1>
+        <div class="logo">
+            <h1>GlitzLips</h1>
+        </div>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cart.html">Cart</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
         </nav>
     </header>
+    
     <main>
-        <div class="product">
-            <div class="glitter-background">
-                <img src="C:\Users\12085\Downloads\glitter gloss.jpg" alt="Glitter Gloss">
-                <h2>Glitter Gloss</h2>
+        <div class="product-detail">
+            <div class="product-image">
+                <img src="images/glitter_gloss.jpg" alt="Glitter Gloss">
+            </div>
+            <div class="product-details">
+                <h3>Glitter Gloss</h3>
                 <p>Add a touch of sparkle to your lips with our Glitter Gloss. This long-lasting formula will keep your lips shimmering all day and night.</p>
                 <p>Price: $10.99</p>
                 <button onclick="addToCart('Glitter Gloss', 10.99)">Add to Cart</button>
             </div>
         </div>
     </main>
+
     <footer>
-        <p>&copy; 2024 Glitz Lips. All rights reserved.</p>
+        <p>&copy; 2024 GlitzLips. All rights reserved.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
+
 
