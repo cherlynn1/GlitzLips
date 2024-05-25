@@ -1,5 +1,3 @@
-// script.js
-
 // Function to add items to the cart
 function addToCart(productName, productPrice) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -47,7 +45,6 @@ function checkout() {
 if (window.location.pathname.endsWith('cart.html')) {
     displayCart();
 }
-// script.js
 
 // Initialize Stripe with your publishable key
 const stripe = Stripe('your-publishable-key-here'); // Replace with your Stripe publishable key
@@ -59,7 +56,9 @@ const elements = stripe.elements();
 const card = elements.create('card');
 
 // Add an instance of the card Element into the `card-element` <div>
-card.mount('#card-element');
+if (document.getElementById('card-element')) {
+    card.mount('#card-element');
+}
 
 // Handle real-time validation errors from the card Element
 card.on('change', ({error}) => {
@@ -73,20 +72,22 @@ card.on('change', ({error}) => {
 
 // Handle form submission
 const form = document.getElementById('payment-form');
-form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const {token, error} = await stripe.createToken(card);
-
-    if (error) {
-        // Inform the customer that there was an error
-        const errorElement = document.getElementById('card-errors');
-        errorElement.textContent = error.message;
-    } else {
-        // Send the token to your server
-        stripeTokenHandler(token);
-    }
-});
+if (form) {
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+    
+        const { token, error } = await stripe.createToken(card);
+    
+        if (error) {
+            // Inform the customer that there was an error
+            const errorElement = document.getElementById('card-errors');
+            errorElement.textContent = error.message;
+        } else {
+            // Send the token to your server
+            stripeTokenHandler(token);
+        }
+    });
+}
 
 // Submit the token and the rest of your form to your server
 function stripeTokenHandler(token) {
@@ -100,56 +101,4 @@ function stripeTokenHandler(token) {
     // Submit the form
     form.submit();
 }
-// script.js
 
-// Initialize Stripe with your publishable key
-const stripe = Stripe('pk_live_51PK3JuRpRHULbb6uczUc0Rr7qEQBSSIRdhHUykUhUrpjEHrKfivAR2gQroxDbUhRZsP5xmFVI88abc8XOZH0eqtd00hdZCPEsd'); 
-
-// Create an instance of Elements
-const elements = stripe.elements();
-
-// Create an instance of the card Element
-const card = elements.create('card');
-
-// Add an instance of the card Element into the `card-element` <div>
-card.mount('#card-element');
-
-// Handle real-time validation errors from the card Element
-card.on('change', ({error}) => {
-    const displayError = document.getElementById('card-errors');
-    if (error) {
-        displayError.textContent = error.message;
-    } else {
-        displayError.textContent = '';
-    }
-});
-
-// Handle form submission
-const form = document.getElementById('payment-form');
-form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const { token, error } = await stripe.createToken(card);
-
-    if (error) {
-        // Inform the customer that there was an error
-        const errorElement = document.getElementById('card-errors');
-        errorElement.textContent = error.message;
-    } else {
-        // Send the token to your server
-        stripeTokenHandler(token);
-    }
-});
-
-// Submit the token and the rest of your form to your server
-function stripeTokenHandler(token) {
-    const form = document.getElementById('payment-form');
-    const hiddenInput = document.createElement('input');
-    hiddenInput.setAttribute('type', 'hidden');
-    hiddenInput.setAttribute('name', 'stripeToken');
-    hiddenInput.setAttribute('value', token.id);
-    form.appendChild(hiddenInput);
-
-    // Submit the form
-    form.submit();
-}

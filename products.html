@@ -18,13 +18,14 @@
                 <li><a href="products.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
         <h2>Our Products</h2>
-        <div class="product">
+        <div class="product" data-id="1" data-name="Glitter Gloss" data-price="10.99">
             <div class="product-image">
                 <img src="images/glitter_gloss.jpg" alt="Glitter Gloss">
             </div>
@@ -33,10 +34,11 @@
                 <p>Add a touch of sparkle to your lips with our Glitter Gloss. This long-lasting formula will keep your lips shimmering all day and night.</p>
                 <p>Price: $10.99</p>
                 <a href="glitter gloss.html"><button>View Details</button></a>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>
         
-        <div class="product">
+        <div class="product" data-id="2" data-name="Matte Lipstick" data-price="12.99">
             <div class="product-image">
                 <img src="images/matte_lipstick.jpg" alt="Matte Lipstick">
             </div>
@@ -45,10 +47,11 @@
                 <p>Get that bold, matte finish with our Matte Lipstick collection. Available in a variety of vibrant shades to suit every mood.</p>
                 <p>Price: $12.99</p>
                 <a href="matte lipstick.html"><button>View Details</button></a>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>
         
-        <div class="product">
+        <div class="product" data-id="3" data-name="Lip Plumper" data-price="14.99">
             <div class="product-image">
                 <img src="images/lip_plumper.jpg" alt="Lip Plumper">
             </div>
@@ -57,6 +60,7 @@
                 <p>Enhance the fullness of your lips with our Lip Plumper formula. Achieve a voluptuous pout without the need for injections.</p>
                 <p>Price: $14.99</p>
                 <a href="lip plumper.html"><button>View Details</button></a>
+                <button class="add-to-cart">Add to Cart</button>
             </div>
         </div>
     </main>
@@ -65,6 +69,29 @@
         <p>&copy; 2024 GlitzLips. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle adding items to cart
+            var addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var product = button.closest('.product');
+                    var productId = product.getAttribute('data-id');
+                    var productName = product.getAttribute('data-name');
+                    var productPrice = product.getAttribute('data-price');
+        
+                    var cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    var existingProduct = cart.find(item => item.id === productId);
+                    if (existingProduct) {
+                        existingProduct.quantity += 1;
+                    } else {
+                        cart.push({ id: productId, name: productName, price: productPrice, quantity: 1 });
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    alert(productName + ' has been added to your cart.');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
